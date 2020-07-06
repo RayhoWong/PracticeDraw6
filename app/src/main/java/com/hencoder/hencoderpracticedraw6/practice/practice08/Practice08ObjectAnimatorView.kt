@@ -14,7 +14,11 @@ class Practice08ObjectAnimatorView : View {
     var arcRectF = RectF()
     var paint = Paint(Paint.ANTI_ALIAS_FLAG)
     // TODO 为 progress 添加 getter 和 setter 方法（setter 方法记得加 invalidate()）
-    var progress = 0f
+    var progress = 0
+    set(value) {
+        field = value
+        invalidate()
+    }
 
     constructor(context: Context?) : super(context) {}
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}

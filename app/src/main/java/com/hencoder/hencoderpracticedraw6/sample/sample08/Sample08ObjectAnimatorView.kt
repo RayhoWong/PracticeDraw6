@@ -11,22 +11,18 @@ import com.hencoder.hencoderpracticedraw6.Utils.dpToPixel
 
 class Sample08ObjectAnimatorView : View {
     val radius: Float = dpToPixel(80f)
-    var progress = 0f
-    var arcRectF = RectF()
+    private var progress = 0
+    set(value) {
+        field = value
+        invalidate()
+    }
+    lateinit var arcRectF: RectF
     var paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     constructor(context: Context?) : super(context) {}
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
-    fun getProgress(): Int {
-        return progress.toInt()
-    }
-
-    fun setProgress(progress: Int) {
-        this.progress = progress.toFloat()
-        invalidate()
-    }
 
     public override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -36,7 +32,7 @@ class Sample08ObjectAnimatorView : View {
         paint.style = Paint.Style.STROKE
         paint.strokeCap = Paint.Cap.ROUND
         paint.strokeWidth = dpToPixel(15f)
-        arcRectF[centerX - radius, centerY - radius, centerX + radius] = centerY + radius
+        arcRectF = RectF(centerX - radius, centerY - radius, centerX + radius,centerY + radius)
         canvas.drawArc(arcRectF, 135f, progress * 2.7f, false, paint)
         paint.color = Color.WHITE
         paint.style = Paint.Style.FILL

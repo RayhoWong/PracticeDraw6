@@ -21,7 +21,7 @@ class Sample08ObjectAnimatorLayout : RelativeLayout {
         view = findViewById(R.id.objectAnimatorView) as Sample08ObjectAnimatorView
         animateBt = findViewById(R.id.animateBt) as Button
         animateBt!!.setOnClickListener {
-            val animator: ObjectAnimator = ObjectAnimator.ofFloat(view, "progress", 0f, 65f)
+            val animator: ObjectAnimator = ObjectAnimator.ofInt(view, "progress", 0, 65)
             animator.duration = 1000
             animator.interpolator = FastOutSlowInInterpolator()
             animator.start()

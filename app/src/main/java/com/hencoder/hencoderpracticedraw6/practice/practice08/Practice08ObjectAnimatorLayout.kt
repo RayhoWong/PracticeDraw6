@@ -1,6 +1,9 @@
 package com.hencoder.hencoderpracticedraw6.practice.practice08
 
+import android.animation.ObjectAnimator
 import android.content.Context
+import android.graphics.Interpolator
+import android.support.v4.view.animation.FastOutSlowInInterpolator
 import android.util.AttributeSet
 import android.widget.Button
 import android.widget.RelativeLayout
@@ -23,6 +26,10 @@ class Practice08ObjectAnimatorLayout : RelativeLayout {
 // 1. 用 ObjectAnimator 创建 Animator 对象
 // 2. 用 start() 执行动画
 // *. 记得在 Practice08ObjectAnimatorView 中为 progress 添加 setter/ getter 方法！
+            val animator = ObjectAnimator.ofInt(view,"progress",0,65)
+            animator.duration = 1000
+            animator.interpolator = FastOutSlowInInterpolator()
+            animator.start()
         }
     }
 }
