@@ -33,7 +33,7 @@ class Sample08ObjectAnimatorView : View {
         paint.strokeCap = Paint.Cap.ROUND
         paint.strokeWidth = dpToPixel(15f)
         arcRectF = RectF(centerX - radius, centerY - radius, centerX + radius,centerY + radius)
-        canvas.drawArc(arcRectF, 135f, progress * 2.7f, false, paint)
+        canvas.drawArc(arcRectF, -90f, progress * 2.7f, false, paint)
         paint.color = Color.WHITE
         paint.style = Paint.Style.FILL
         canvas.drawText("$progress%", centerX, centerY - (paint.ascent() + paint.descent()) / 2, paint)
